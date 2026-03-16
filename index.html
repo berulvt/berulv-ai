@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Berulv Tøndel — AI-konsult</title>
+  <meta name="description" content="Berulv Tøndel hjälper organisationer att leda sin AI-transformation med strategi, implementering och kompetensuppbyggnad." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #FAF7F4;
+      --surface:   #F0E8DF;
+      --border:    #DDD0C3;
+      --text:      #2C1A10;
+      --muted:     #7A5C48;
+      --accent:    #8B5E3C;
+      --accent-lt: #C4956A;
+      --white:     #FFFFFF;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 4rem;
+      background: rgba(250, 247, 244, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .lang-toggle {
+      display: flex;
+      gap: 0.25rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 0.2rem;
+    }
+
+    .lang-btn {
+      border: none;
+      background: none;
+      cursor: pointer;
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 0.25rem 0.65rem;
+      border-radius: 16px;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: all 0.2s;
+    }
+
+    .lang-btn.active {
+      background: var(--accent);
+      color: var(--white);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 8rem 4rem 6rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .hero-content { max-width: 680px; }
+
+    .hero-eyebrow {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-lt);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.6rem, 5vw, 4rem);
+      font-weight: 500;
+      line-height: 1.2;
+      color: var(--text);
+      margin-bottom: 1.75rem;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-lead {
+      font-size: 1.15rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+      max-width: 540px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--white);
+      text-decoration: none;
+      padding: 0.9rem 2.2rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-primary:hover {
+      background: #7A5235;
+      transform: translateY(-1px);
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      padding: 6rem 4rem;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-lt);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+      line-height: 1.3;
+    }
+
+    .section-lead {
+      font-size: 1.05rem;
+      color: var(--muted);
+      font-weight: 300;
+      max-width: 580px;
+      line-height: 1.8;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* ── SERVICES ── */
+    #tjanster { background: var(--surface); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3.5rem;
+    }
+
+    .service-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 2rem 2rem 2.5rem;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .service-card:hover {
+      box-shadow: 0 8px 32px rgba(44, 26, 16, 0.08);
+      transform: translateY(-3px);
+    }
+
+    .service-icon {
+      font-size: 1.6rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .service-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+
+    .service-card p {
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      margin-top: 3rem;
+    }
+
+    .about-text p {
+      font-size: 1rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.85;
+      margin-bottom: 1.2rem;
+    }
+
+    .about-text p:last-child { margin-bottom: 0; }
+
+    .about-facts {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .fact {
+      border-left: 3px solid var(--accent-lt);
+      padding-left: 1.25rem;
+    }
+
+    .fact-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 500;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+
+    .fact-label {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    /* ── CONTACT ── */
+    #kontakt { background: var(--surface); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      margin-top: 3rem;
+    }
+
+    .contact-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .contact-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-lt);
+    }
+
+    .contact-value {
+      font-size: 1rem;
+      color: var(--text);
+      font-weight: 400;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-value:hover { color: var(--accent); }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 2.5rem 4rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .hero { padding: 7rem 1.5rem 4rem; }
+      section { padding: 4rem 1.5rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+      footer { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">Berulv Tøndel</a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="#tjanster" data-sv="Tjänster" data-en="Services">Tjänster</a></li>
+        <li><a href="#om" data-sv="Om mig" data-en="About">Om mig</a></li>
+        <li><a href="#kontakt" data-sv="Kontakt" data-en="Contact">Kontakt</a></li>
+      </ul>
+      <div class="lang-toggle">
+        <button class="lang-btn active" onclick="setLang('sv')">SV</button>
+        <button class="lang-btn" onclick="setLang('en')">EN</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="topp">
+    <div class="hero-content">
+      <p class="hero-eyebrow" data-sv="AI-konsult · Stockholm" data-en="AI Consultant · Stockholm">AI-konsult · Stockholm</p>
+      <h1>
+        <span data-sv="Jag hjälper organisationer att leda sin <em>AI-transformation</em>" data-en="I help organisations lead their <em>AI transformation</em>">
+          Jag hjälper organisationer att leda sin <em>AI-transformation</em>
+        </span>
+      </h1>
+      <p class="hero-lead" data-sv="Strategi, implementering och kompetensuppbyggnad — med fokus på verkligt affärsvärde och långsiktig förmåga." data-en="Strategy, implementation and capability building — with a focus on real business value and lasting organisational capacity.">
+        Strategi, implementering och kompetensuppbyggnad — med fokus på verkligt affärsvärde och långsiktig förmåga.
+      </p>
+      <a href="#kontakt" class="btn-primary" data-sv="Ta kontakt" data-en="Get in touch">Ta kontakt</a>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- SERVICES -->
+  <section id="tjanster">
+    <div class="section-inner">
+      <p class="section-label" data-sv="Vad jag erbjuder" data-en="What I offer">Vad jag erbjuder</p>
+      <h2 class="section-title" data-sv="Tjänster" data-en="Services">Tjänster</h2>
+      <p class="section-lead" data-sv="Jag arbetar med ledningsgrupper och team för att omvandla AI-möjligheter till konkreta resultat." data-en="I work with leadership teams and cross-functional teams to turn AI opportunities into concrete results.">
+        Jag arbetar med ledningsgrupper och team för att omvandla AI-möjligheter till konkreta resultat.
+      </p>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">◈</div>
+          <h3 data-sv="AI-strategi" data-en="AI Strategy">AI-strategi</h3>
+          <p data-sv="Kartläggning av möjligheter, prioritering av use cases och roadmap för hur AI skapar värde i just er verksamhet." data-en="Mapping opportunities, prioritising use cases and building a roadmap for how AI creates value in your specific organisation.">
+            Kartläggning av möjligheter, prioritering av use cases och roadmap för hur AI skapar värde i just er verksamhet.
+          </p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">◇</div>
+          <h3 data-sv="Implementering" data-en="Implementation">Implementering</h3>
+          <p data-sv="Hands-on stöd för att ta AI från pilot till produktion — processer, verktyg, integrationer och förändringsledning." data-en="Hands-on support for taking AI from pilot to production — processes, tooling, integrations and change management.">
+            Hands-on stöd för att ta AI från pilot till produktion — processer, verktyg, integrationer och förändringsledning.
+          </p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">◉</div>
+          <h3 data-sv="Kompetensuppbyggnad" data-en="Capability Building">Kompetensuppbyggnad</h3>
+          <p data-sv="Workshops, utbildningar och coachning som ger er organisation förmågan att driva AI-arbetet självständigt framåt." data-en="Workshops, training and coaching that give your organisation the ability to drive AI work independently going forward.">
+            Workshops, utbildningar och coachning som ger er organisation förmågan att driva AI-arbetet självständigt framåt.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ABOUT -->
+  <section id="om">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div>
+          <p class="section-label" data-sv="Om mig" data-en="About me">Om mig</p>
+          <h2 class="section-title" data-sv="Berulv Tøndel" data-en="Berulv Tøndel">Berulv Tøndel</h2>
+          <div class="about-text">
+            <p data-sv="Jag är en oberoende AI-konsult med djup erfarenhet av att hjälpa organisationer navigera AI-transformationen — från första strategi till förankrad vardagsanvändning." data-en="I am an independent AI consultant with deep experience helping organisations navigate the AI transformation — from initial strategy to embedded everyday use.">
+              Jag är en oberoende AI-konsult med djup erfarenhet av att hjälpa organisationer navigera AI-transformationen — från första strategi till förankrad vardagsanvändning.
+            </p>
+            <p data-sv="Mitt arbetssätt kombinerar teknisk förståelse med affärsmässigt fokus. Jag tror på ärlig rådgivning, tydliga prioriteringar och att bygga intern förmåga — inte beroende." data-en="My approach combines technical understanding with business focus. I believe in honest advice, clear priorities and building internal capability — not dependency.">
+              Mitt arbetssätt kombinerar teknisk förståelse med affärsmässigt fokus. Jag tror på ärlig rådgivning, tydliga prioriteringar och att bygga intern förmåga — inte beroende.
+            </p>
+          </div>
+        </div>
+        <div class="about-facts">
+          <div class="fact">
+            <div class="fact-number">AI</div>
+            <div class="fact-label" data-sv="Transformationsspecialist" data-en="Transformation Specialist">Transformationsspecialist</div>
+          </div>
+          <div class="fact">
+            <div class="fact-number">B2B</div>
+            <div class="fact-label" data-sv="Fokus på verksamhetsnära AI-tillämpningar" data-en="Focus on business-critical AI applications">Fokus på verksamhetsnära AI-tillämpningar</div>
+          </div>
+          <div class="fact">
+            <div class="fact-number">NO/SE</div>
+            <div class="fact-label" data-sv="Verksam i Norden" data-en="Operating across the Nordics">Verksam i Norden</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="kontakt">
+    <div class="section-inner">
+      <p class="section-label" data-sv="Kom igång" data-en="Get started">Kom igång</p>
+      <h2 class="section-title" data-sv="Ta kontakt" data-en="Get in touch">Ta kontakt</h2>
+      <p class="section-lead" data-sv="Jag tar gärna ett inledande samtal om era utmaningar och möjligheter. Hör av dig." data-en="I am happy to have an initial conversation about your challenges and opportunities. Reach out.">
+        Jag tar gärna ett inledande samtal om era utmaningar och möjligheter. Hör av dig.
+      </p>
+      <div class="contact-grid">
+        <div class="contact-item">
+          <span class="contact-label">Email</span>
+          <a href="mailto:berulv@gmail.com" class="contact-value">berulv@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <span class="contact-label" data-sv="Telefon" data-en="Phone">Telefon</span>
+          <a href="tel:+46736421312" class="contact-value">073-642 13 12</a>
+        </div>
+        <div class="contact-item">
+          <span class="contact-label">LinkedIn</span>
+          <a href="https://www.linkedin.com/in/berulv" target="_blank" rel="noopener" class="contact-value">linkedin.com/in/berulv</a>
+        </div>
+        <div class="contact-item">
+          <span class="contact-label">Web</span>
+          <a href="https://www.berulv.ai" class="contact-value">berulv.ai</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>© 2026 Berulv Tøndel</span>
+  </footer>
+
+  <script>
+    const translations = {
+      sv: {
+        title: 'Berulv Tøndel — AI-konsult',
+        lang: 'sv'
+      },
+      en: {
+        title: 'Berulv Tøndel — AI Consultant',
+        lang: 'en'
+      }
+    };
+
+    function setLang(lang) {
+      document.documentElement.lang = lang;
+      document.title = translations[lang].title;
+
+      // Update all data-sv / data-en elements
+      document.querySelectorAll('[data-sv]').forEach(el => {
+        const val = el.getAttribute('data-' + lang);
+        if (val !== null) el.innerHTML = val;
+      });
+
+      // Toggle button state
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.textContent.toLowerCase() === lang);
+      });
+    }
+  </script>
+
+</body>
+</html>
