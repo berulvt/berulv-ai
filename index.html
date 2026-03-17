@@ -345,6 +345,81 @@
       letter-spacing: 0.04em;
     }
 
+    /* ── CASES ── */
+    .cases-grid {
+      margin-top: 3.5rem;
+      display: grid;
+      gap: 2rem;
+    }
+
+    .case-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 2.5rem;
+    }
+
+    .case-header {
+      margin-bottom: 1.5rem;
+    }
+
+    .case-client {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.35rem;
+    }
+
+    .case-duration {
+      font-size: 0.82rem;
+      color: var(--accent-lt);
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .case-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .case-tag {
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: var(--muted);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 0.25rem 0.85rem;
+    }
+
+    .case-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      border-top: 1px solid var(--border);
+      padding-top: 2rem;
+    }
+
+    .case-metric-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 500;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .case-metric-label {
+      font-size: 0.83rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.5;
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       nav { padding: 1rem 1.5rem; }
@@ -353,6 +428,7 @@
       section { padding: 4rem 1.5rem; }
       .about-grid { grid-template-columns: 1fr; gap: 3rem; }
       .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .case-metrics { grid-template-columns: 1fr; gap: 1.5rem; }
       footer { padding: 2rem 1.5rem; }
     }
   </style>
@@ -365,6 +441,7 @@
     <div class="nav-right">
       <ul class="nav-links">
         <li><a href="#tjanster" data-sv="Tjänster" data-en="Services">Tjänster</a></li>
+        <li><a href="#cases" data-sv="Cases" data-en="Cases">Cases</a></li>
         <li><a href="#om" data-sv="Om mig" data-en="About">Om mig</a></li>
         <li><a href="#kontakt" data-sv="Kontakt" data-en="Contact">Kontakt</a></li>
       </ul>
@@ -384,8 +461,8 @@
           Jag hjälper organisationer att leda sin <em>AI-transformation</em>
         </span>
       </h1>
-      <p class="hero-lead" data-sv="Strategi, implementering och kompetensuppbyggnad — med fokus på verkligt affärsvärde och långsiktig förmåga." data-en="Strategy, implementation and capability building — with a focus on real business value and lasting organisational capacity.">
-        Strategi, implementering och kompetensuppbyggnad — med fokus på verkligt affärsvärde och långsiktig förmåga.
+      <p class="hero-lead" data-sv="Strategi, implementering och kompetensuppbyggnad — med fokus på verkligt affärsvärde och långsiktig förmåga i organisationen." data-en="Strategy, implementation and capability building — with a focus on real business value and lasting organisational capacity.">
+        Strategi, implementering och kompetensuppbyggnad — med fokus på verkligt affärsvärde och långsiktig förmåga i organisationen.
       </p>
       <a href="#kontakt" class="btn-primary" data-sv="Ta kontakt" data-en="Get in touch">Ta kontakt</a>
     </div>
@@ -398,8 +475,8 @@
     <div class="section-inner">
       <p class="section-label" data-sv="Vad jag erbjuder" data-en="What I offer">Vad jag erbjuder</p>
       <h2 class="section-title" data-sv="Tjänster" data-en="Services">Tjänster</h2>
-      <p class="section-lead" data-sv="Jag arbetar med ledningsgrupper och team för att omvandla AI-möjligheter till konkreta resultat." data-en="I work with leadership teams and cross-functional teams to turn AI opportunities into concrete results.">
-        Jag arbetar med ledningsgrupper och team för att omvandla AI-möjligheter till konkreta resultat.
+      <p class="section-lead" data-sv="Jag arbetar med hela bolaget, från ledningsgrupp, chefer och medarbetare för att omvandla AI-möjligheter till konkreta resultat." data-en="I work with the whole organisation, from leadership team, managers and employees to turn AI opportunities into concrete results.">
+        Jag arbetar med hela bolaget, från ledningsgrupp, chefer och medarbetare för att omvandla AI-möjligheter till konkreta resultat.
       </p>
       <div class="services-grid">
         <div class="service-card">
@@ -422,6 +499,43 @@
           <p data-sv="Workshops, utbildningar och coachning som ger er organisation förmågan att driva AI-arbetet självständigt framåt." data-en="Workshops, training and coaching that give your organisation the ability to drive AI work independently going forward.">
             Workshops, utbildningar och coachning som ger er organisation förmågan att driva AI-arbetet självständigt framåt.
           </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- CASES -->
+  <section id="cases">
+    <div class="section-inner">
+      <p class="section-label" data-sv="Referensprojekt" data-en="Case Studies">Referensprojekt</p>
+      <h2 class="section-title" data-sv="Resultat som talar för sig själva" data-en="Results that speak for themselves">Resultat som talar för sig själva</h2>
+      <div class="cases-grid">
+        <div class="case-card">
+          <div class="case-header">
+            <div class="case-client">AB Väsbyhem</div>
+            <div class="case-duration" data-sv="1,5 år · AI-transformation" data-en="1.5 years · AI transformation">1,5 år · AI-transformation</div>
+          </div>
+          <div class="case-tags">
+            <span class="case-tag" data-sv="AI-transformationsledning" data-en="AI Transformation Management">AI-transformationsledning</span>
+            <span class="case-tag" data-sv="Projektledning" data-en="Project Management">Projektledning</span>
+            <span class="case-tag" data-sv="Kompetenslyft i hela bolaget" data-en="Company-wide Capability Building">Kompetenslyft i hela bolaget</span>
+          </div>
+          <div class="case-metrics">
+            <div class="case-metric">
+              <div class="case-metric-number">83%</div>
+              <div class="case-metric-label" data-sv="AI-adoptionsgrad" data-en="AI adoption rate">AI-adoptionsgrad</div>
+            </div>
+            <div class="case-metric">
+              <div class="case-metric-number">94%</div>
+              <div class="case-metric-label" data-sv="upplever höjd kvalitet i arbetet" data-en="experience improved quality at work">upplever höjd kvalitet i arbetet</div>
+            </div>
+            <div class="case-metric">
+              <div class="case-metric-number">27→61%</div>
+              <div class="case-metric-label" data-sv="AI-mognad (start → efter 1 år)" data-en="AI maturity (start → after 1 year)">AI-mognad (start → efter 1 år)</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -455,8 +569,8 @@
             <div class="fact-label" data-sv="Fokus på verksamhetsnära AI-tillämpningar" data-en="Focus on business-critical AI applications">Fokus på verksamhetsnära AI-tillämpningar</div>
           </div>
           <div class="fact">
-            <div class="fact-number">NO/SE</div>
-            <div class="fact-label" data-sv="Verksam i Norden" data-en="Operating across the Nordics">Verksam i Norden</div>
+            <div class="fact-number">STHLM</div>
+            <div class="fact-label" data-sv="Verksam i Stockholmsregionen — remote uppdrag möjligt" data-en="Based in Stockholm — remote engagements available">Verksam i Stockholmsregionen — remote uppdrag möjligt</div>
           </div>
         </div>
       </div>
@@ -474,7 +588,7 @@
       <div class="contact-grid">
         <div class="contact-item">
           <span class="contact-label">Email</span>
-          <a href="mailto:berulv@gmail.com" class="contact-value">berulv@gmail.com</a>
+          <a href="mailto:berulv@berulv.ai" class="contact-value">berulv@berulv.ai</a>
         </div>
         <div class="contact-item">
           <span class="contact-label" data-sv="Telefon" data-en="Phone">Telefon</span>
